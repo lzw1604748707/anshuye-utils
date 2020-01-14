@@ -1,0 +1,47 @@
+{
+  "name": "wxt-utils",
+  "description": "this is only used for the utils class of the weixt projects",
+  "version": "1.0.5",
+  "main": "dist/src",
+  "types": "dist/types",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --require ts-node/register test/**/*.ts"
+  },
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git@10.10.10.191:fe/wxt-utils.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "homepage": "http://weixt.spacetech.com.cn:19180/fe/wxt-utils",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "lint-staged": "^9.2.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/file-saver": "^2.0.1",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/lodash.throttle": "^4.1.6",
+    "@types/node": "^12.6.8",
+    "file-saver": "^2.0.2",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "moment": "^2.24.0"
+  }
+}
