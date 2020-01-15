@@ -26,6 +26,7 @@ export default class FileUtils {
       }
     })
   }
+
   /**
    * base64转 Uint8Array对象
    * @param {string} dataUrl base64字符串
@@ -42,6 +43,7 @@ export default class FileUtils {
     }
     return {uint8arr: u8arr, type: mime}
   }
+
   /**
    * base64转 Blob对象
    * @param {string} dataUrl base64字符串
@@ -50,6 +52,7 @@ export default class FileUtils {
     const {uint8arr, type} = this.dataUrlToUint8Array(dataUrl)
     return new Blob([uint8arr], {type: type})
   }
+
   /**
    * base64转 File对象
    * @param {string} dataUrl base64字符串
@@ -59,6 +62,7 @@ export default class FileUtils {
     const {uint8arr, type} = this.dataUrlToUint8Array(dataUrl)
     return new File([uint8arr], fileName, {type: type})
   }
+
   /**
    * 根据url地址下载，并指定文件名
    * @param {string} url 下载源地址

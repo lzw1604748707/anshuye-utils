@@ -40,6 +40,7 @@
     "@types/lodash.throttle": "^4.1.6",
     "@types/node": "^12.6.8",
     "file-saver": "^2.0.2",
+    "fs": "^0.0.1-security",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "moment": "^2.24.0"
