@@ -1,5 +1,7 @@
 import moment from 'moment'
-import {ojbectUtils} from '..'
+import OjbectUtils from './object'
+const ojbectUtils = new OjbectUtils()
+
 /**
  * 设置 cookie
  * @param {string} domain  作用域名
