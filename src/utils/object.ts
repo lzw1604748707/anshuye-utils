@@ -1,4 +1,5 @@
-import {arrayUtils} from '../index'
+import ArrayUtils from './array'
+const arrayUtils = new ArrayUtils()
 
 export default class OjbectUtils {
   /**

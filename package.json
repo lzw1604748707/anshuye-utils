@@ -1,6 +1,6 @@
 {
-  "name": "wxt-utils",
-  "description": "this is only used for the utils class of the weixt projects",
+  "name": "eucalyptus-utils",
+  "description": "this is only used for the utils class of the eucalyptus about projects",
   "version": "1.0.5",
   "main": "dist/src",
   "types": "dist/types",
@@ -8,15 +8,16 @@
     "build": "tsc",
     "test": "mocha --require ts-node/register test/**/*.ts"
   },
-  "author": "",
+  "author": "eucalyptus",
   "repository": {
     "type": "git",
-    "url": "git@10.10.10.191:fe/wxt-utils.git"
+    "url": "git@github.com:lzw1604748707/anshuye-utils.git"
   },
   "keywords": [
-    "typescript"
+    "typescript",
+    "utils"
   ],
-  "homepage": "http://weixt.spacetech.com.cn:19180/fe/wxt-utils",
+  "homepage": "https://github.com/lzw1604748707/anshuye-utils",
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.1.7",

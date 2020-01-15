@@ -1,20 +1,20 @@
-# 公司业务使用,公用度有限
+# 自用项目使用,公用度有限
 
 # Installing
 
 ## yarn
 
-`$ yarn add wxt-utils`
+`$ yarn add eucalyptus-utils`
 
 # Using
 
-- common.js
+- commonjs
 
-`const {arrayUtils,...className} = require('wxt-utils');`
+`const {arrayUtils,...className} = require('eucalyptus-utils');`
 
 - es6、ts
 
-`import {arrayUtils,...className} from 'wxt-utils'`
+`import {arrayUtils,...className} from 'eucalyptus-utils'`
 
 # Utils
 
@@ -23,7 +23,6 @@
 - [assistUtils 类 **（辅助开发）** ](#assistutils-类)
 - [cookie 类 **（cookie）**](#cookie-类)
 - [fileUtils 类 **（文件处理）**](#fileutils-类)
-- [imageUtils 类 **（图片处理）**](#imageutils-类)
 - [randomUtils 类 **（随机生成）**](#randomutils-类)
 - [transformUtils 类 **（转换处理）**](#transformutils-类)
 - [validatorUtils 类 **（验证器）**](#validatorutils-类)
@@ -944,54 +943,5 @@ fileUtils.download(svgUrl, 'noaLL') // expected output:以noaLL.svg 命名将文
 **返回值**
 
 无返回，直接调用浏览器下载
-
-<hr>
-
-## imageUtils 类
-
-| 属性                          | 描述                                 |
-| ----------------------------- | ------------------------------------ |
-| **imgThumbnailParam80**       | 将图片压缩成 80\*80 的分辨率大小     |
-| **imgThumbnailParam120**      | 将图片压缩成 120\*120 的分辨率大小   |
-| **imgThumbnailParam160**      | 将图片压缩成 160\*160 的分辨率大小   |
-| **imgThumbnailParam320**      | 将图片压缩成 320\*320 的分辨率大小   |
-| **imgThumbnailParam375**      | 将图片压缩成 375\*375 的分辨率大小   |
-| **imgThumbnailParamRadius50** | 将图片压缩成半径 50 分辨率的圆形图片 |
-
-| 方法                                                    | 描述                     |
-| ------------------------------------------------------- | ------------------------ |
-| [**checkResolution**](#checkresolution)                 | 检验 image 对象的分辨率  |
-| [**isSupportCompress**](#issupportcompress)             | 检测图片地址是否支持压缩 |
-| [**compressImage**](#compressimage)                     | 阿里云 OSS 图片处理服务  |
-| [**compressImageByImgParam**](#compressimagebyimgparam) | 根据相对比进行图片压缩   |
-| [**addWatermark**](#addwatermark)                       | 图片加水印               |
-
-<hr>
-
-### checkResolution
-
-`checkResolution()` 检验 image 对象的分辨率是否符合给定分辨率
-
-```javascript
-const image = '<img src="data://base64.....">'
-const isSameResolution = imageUtils.checkResolution(image, [200, 200])
-console.log(isSameResolution) // expected output:false
-```
-
-**语法**
-
-> **imageUtils.checkResolution(image,resolution)**
-
-**参数**
-
-`image` : `必选` <br>
-用于验证的 image 对象
-
-`resolution` : `必选` <br>
-用于验证的分辨率数组
-
-**返回值**
-
-返回一个 Boolean 类型，true 表示匹配，false 表示不匹配
 
 <hr>
