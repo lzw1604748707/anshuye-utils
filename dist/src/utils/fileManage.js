@@ -73,14 +73,13 @@ var FileManageUtils = /** @class */ (function () {
             var fileUrl = dir + '' + file;
             var stats = fs_1.default.lstatSync(fileUrl);
             if (stats.isDirectory()) {
-                var folderName = path_1.default.basename(fileUrl);
                 var childrenList = _this.flatDirList(fileUrl + '/', dirName, encode);
-                if (!dirName || folderName === dirName) {
-                    fileUrlList = __spreadArrays(fileUrlList, childrenList);
-                }
+                fileUrlList = __spreadArrays(fileUrlList, childrenList);
             }
             else {
-                fileUrlList.push(fileUrl);
+                var folderName = path_1.default.basename('' + dir);
+                if (!dirName || folderName === dirName)
+                    fileUrlList.push(fileUrl);
             }
         });
         return fileUrlList;

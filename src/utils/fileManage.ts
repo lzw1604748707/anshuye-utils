@@ -7,24 +7,18 @@ export default class FileManageUtils {
    * @param dirName  指定遍历的子文件目录名
    * @param encode  文件目录编码
    */
-  public flatDirList(
-    dir: fs.PathLike,
-    dirName?: string,
-    encode = 'utf-8'
-  ): string[] {
+  public flatDirList(dir: fs.PathLike, dirName?: string, encode = 'utf-8'): string[] {
     let fileUrlList: string[] = []
     const fileList = fs.readdirSync(dir, encode)
     fileList.forEach((file: string | Buffer) => {
       const fileUrl = dir + '' + file
       const stats = fs.lstatSync(fileUrl)
       if (stats.isDirectory()) {
-        const folderName = path.basename(fileUrl)
         const childrenList = this.flatDirList(fileUrl + '/', dirName, encode)
-        if (!dirName || folderName === dirName) {
-          fileUrlList = [...fileUrlList, ...childrenList]
-        }
+        fileUrlList = [...fileUrlList, ...childrenList]
       } else {
-        fileUrlList.push(fileUrl)
+        const folderName = path.basename('' + dir)
+        if (!dirName || folderName === dirName) fileUrlList.push(fileUrl)
       }
     })
     return fileUrlList
@@ -44,11 +38,7 @@ export default class FileManageUtils {
    * @param dir  文件目录
    * @param encode  目录编码
    */
-  public async loadMultipleModule(
-    dir: fs.PathLike,
-    dirName?: string,
-    encode = 'utf-8'
-  ) {
+  public async loadMultipleModule(dir: fs.PathLike, dirName?: string, encode = 'utf-8') {
     let moduleList = []
     const fileUrlList = this.flatDirList(dir, dirName, encode)
     for (const url of fileUrlList) {
