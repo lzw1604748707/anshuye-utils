@@ -61,9 +61,10 @@ var FileManageUtils = /** @class */ (function () {
     /**
      * 扁平化文件目录
      * @param dir  文件目录地址
+     * @param dirName  指定遍历的子文件目录名
      * @param encode  文件目录编码
      */
-    FileManageUtils.prototype.flatDirList = function (dir, encode) {
+    FileManageUtils.prototype.flatDirList = function (dir, dirName, encode) {
         var _this = this;
         if (encode === void 0) { encode = 'utf-8'; }
         var fileUrlList = [];
@@ -72,8 +73,11 @@ var FileManageUtils = /** @class */ (function () {
             var fileUrl = dir + '' + file;
             var stats = fs_1.default.lstatSync(fileUrl);
             if (stats.isDirectory()) {
-                var childrenFileUrlList = _this.flatDirList(fileUrl + '/');
-                fileUrlList = __spreadArrays(fileUrlList, childrenFileUrlList);
+                var folderName = path_1.default.basename(fileUrl);
+                if (!dirName || folderName === dirName) {
+                    var childrenList = _this.flatDirList(fileUrl + '/', dirName, encode);
+                    fileUrlList = __spreadArrays(fileUrlList, childrenList);
+                }
             }
             else {
                 fileUrlList.push(fileUrl);
@@ -105,7 +109,7 @@ var FileManageUtils = /** @class */ (function () {
      * @param dir  文件目录
      * @param encode  目录编码
      */
-    FileManageUtils.prototype.loadMultipleModule = function (dir, encode) {
+    FileManageUtils.prototype.loadMultipleModule = function (dir, dirName, encode) {
         if (encode === void 0) { encode = 'utf-8'; }
         return __awaiter(this, void 0, void 0, function () {
             var moduleList, fileUrlList, _i, fileUrlList_1, url, module_1;
@@ -113,7 +117,7 @@ var FileManageUtils = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         moduleList = [];
-                        fileUrlList = this.flatDirList(dir, encode);
+                        fileUrlList = this.flatDirList(dir, dirName, encode);
                         _i = 0, fileUrlList_1 = fileUrlList;
                         _a.label = 1;
                     case 1:
