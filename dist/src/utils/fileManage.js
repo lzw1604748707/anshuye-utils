@@ -74,8 +74,8 @@ var FileManageUtils = /** @class */ (function () {
             var stats = fs_1.default.lstatSync(fileUrl);
             if (stats.isDirectory()) {
                 var folderName = path_1.default.basename(fileUrl);
+                var childrenList = _this.flatDirList(fileUrl + '/', dirName, encode);
                 if (!dirName || folderName === dirName) {
-                    var childrenList = _this.flatDirList(fileUrl + '/', dirName, encode);
                     fileUrlList = __spreadArrays(fileUrlList, childrenList);
                 }
             }

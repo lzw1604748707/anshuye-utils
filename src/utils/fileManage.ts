@@ -19,8 +19,8 @@ export default class FileManageUtils {
       const stats = fs.lstatSync(fileUrl)
       if (stats.isDirectory()) {
         const folderName = path.basename(fileUrl)
+        const childrenList = this.flatDirList(fileUrl + '/', dirName, encode)
         if (!dirName || folderName === dirName) {
-          const childrenList = this.flatDirList(fileUrl + '/', dirName, encode)
           fileUrlList = [...fileUrlList, ...childrenList]
         }
       } else {
